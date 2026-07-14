@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Reino de Amigos — Organograma 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #f5f5f5;
+    color: #1a1a1a;
+    padding: 16px;
+    padding-bottom: 80px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .logo-header { text-align: center; margin-bottom: 20px; }
+  .logo-header img { max-width: 180px; height: auto; display: block; margin: 0 auto; }
+  .tabs { display: flex; gap: 4px; margin-bottom: 16px; flex-wrap: wrap; position: sticky; top: 0; z-index: 10; background: #f5f5f5; padding: 4px 0; }
+  .tab { padding: 8px 12px; border: 1px solid #ddd; background: #fff; color: #555; border-radius: 8px; cursor: pointer; font-size: 0.72rem; font-weight: 600; white-space: nowrap; }
+  .tab.active { background: #1a1a2e; color: #f7c948; border-color: #1a1a2e; }
+  .panel { display: none; }
+  .panel.active { display: block; }
+  .card { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 16px; margin-bottom: 14px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  .card h2 { font-size: 1rem; margin-bottom: 10px; }
+  .stats-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; margin-bottom: 14px; }
+  .stat-box { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padding: 12px; text-align: center; }
+  .stat-num { font-size: 1.5rem; font-weight: 800; color: #1a1a2e; }
+  .stat-label { font-size: 0.65rem; color: #999; }
+  .lider-item { background: #fafafa; border: 1px solid #e5e5e5; border-radius: 10px; padding: 12px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .lider-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #1a1a2e, #16213e); color: #f7c948; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; flex-shrink: 0; }
+  .lider-info { flex: 1; min-width: 120px; }
+  .lider-name { font-weight: 700; font-size: 0.85rem; }
+  .lider-convites { font-size: 0.7rem; color: #999; }
+  .lider-convites input { width: 44px; padding: 4px; border: 1px solid #ddd; border-radius: 6px; text-align: center; font-size: 0.8rem; margin: 0 4px; }
+  .lider-convidados-list { width: 100%; margin-top: 6px; display: flex; flex-wrap: wrap; gap: 4px; }
+  .lider-convidados-list input { flex: 1; min-width: 100px; padding: 6px 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.75rem; background: #fff; }
+  .timeline-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; background: #fafafa; border: 1px solid #e5e5e5; border-radius: 8px; margin-bottom: 4px; font-size: 0.78rem; flex-wrap: wrap; }
+  .timeline-num { width: 28px; height: 28px; border-radius: 50%; background: #1a1a2e; color: #f7c948; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.72rem; flex-shrink: 0; }
+  .timeline-num.feriado { background: #c0392b; }
+  .timeline-date { font-weight: 600; min-width: 70px; }
+  .timeline-badge { margin-left: auto; font-size: 0.65rem; padding: 3px 8px; border-radius: 10px; background: #e8f0fe; color: #1a1a2e; font-weight: 600; }
+  .tarefa-card { background: #fafafa; border: 1px solid #e5e5e5; border-radius: 10px; padding: 12px; margin-bottom: 8px; }
+  .tarefa-card h4 { font-size: 0.82rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .tarefa-card p { font-size: 0.7rem; color: #888; margin-bottom: 6px; }
+  .tarefa-card .resp-input { width: 100%; padding: 6px 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.72rem; background: #fff; }
+  .check-btn { width: 20px; height: 20px; border: 2px solid #ccc; border-radius: 4px; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; background: #fff; }
+  .check-btn.done { background: #27ae60; border-color: #27ae60; color: #fff; }
+  .funcao-card { background: #fafafa; border: 1px solid #e5e5e5; border-radius: 10px; padding: 12px; margin-bottom: 8px; }
+  .funcao-card h4 { font-size: 0.82rem; color: #1a1a2e; margin-bottom: 4px; }
+  .funcao-card p { font-size: 0.72rem; color: #888; margin-bottom: 6px; }
+  .funcao-card .resp-input { width: 100%; padding: 6px 8px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.72rem; background: #fff; }
+  .fluxo { display: flex; gap: 8px; flex-wrap: wrap; }
+  .fluxo-step { flex: 1; min-width: 100px; background: #fafafa; border: 1px solid #e5e5e5; border-radius: 10px; padding: 12px; text-align: center; }
+  .fluxo-step .step-num { width: 24px; height: 24px; border-radius: 50%; background: #1a1a2e; color: #f7c948; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.7rem; margin-bottom: 6px; }
+  .fluxo-step h4 { font-size: 0.78rem; margin-bottom: 2px; }
+  .fluxo-step p { font-size: 0.68rem; color: #888; }
+  .bottom-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e5e5e5; padding: 10px 16px; display: flex; gap: 8px; z-index: 20; }
+  .btn { flex: 1; padding: 12px; border: none; border-radius: 10px; font-size: 0.85rem; font-weight: 700; cursor: pointer; }
+  .btn-save { background: #1a1a2e; color: #f7c948; }
+  .btn-print { background: #f7c948; color: #1a1a2e; }
+  .btn-reset { background: #eee; color: #666; flex: 0.4; }
+  .toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background: #1a1a2e; color: #f7c948; padding: 12px 24px; border-radius: 10px; font-size: 0.85rem; font-weight: 600; z-index: 30; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+  .toast.show { opacity: 1; }
+  .info-box { background: #fffef5; border-left: 3px solid #f7c948; padding: 10px; margin: 8px 0; font-size: 0.72rem; }
+  @media print { .tabs, .bottom-bar, .toast { display: none !important; } body { padding: 0; } .panel { display: block !important; margin-bottom: 12px; } .card, .lider-item, .timeline-item, .tarefa-card, .funcao-card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; } }
+</style>
+</head>
+<body>
+<div class="toast" id="toast"></div>
+<div class="logo-header">
+  <img src="https://drive.google.com/uc?export=view&id=1-51ENgsX_lqaA95cAO__CdRQEekmNgQO" alt="Reino de Amigos">
+</div>
+<div class="tabs" id="tabs">
+  <div class="tab active" data-panel="visao">📋 Visão</div>
+  <div class="tab" data-panel="lideranca">👥 Líderes</div>
+  <div class="tab" data-panel="cronograma">📅 Datas</div>
+  <div class="tab" data-panel="tarefas">✅ Tarefas</div>
+  <div class="tab" data-panel="funcoes">⚙️ Funções</div>
+  <div class="tab" data-panel="semana">🔄 Fluxo</div>
+</div>
+<div id="panel-visao" class="panel active">
+  <div class="stats-row">
+    <div class="stat-box"><div class="stat-num">14</div><div class="stat-label">Encontros</div></div>
+    <div class="stat-box"><div class="stat-num">9</div><div class="stat-label">Líderes</div></div>
+    <div class="stat-box"><div class="stat-num" id="total-geral">0</div><div class="stat-label">Convidados</div></div>
+    <div class="stat-box"><div class="stat-num">4</div><div class="stat-label">Faltas máx.</div></div>
+    <div class="stat-box"><div class="stat-num">🗓️</div><div class="stat-label">Terças</div></div>
+  </div>
+  <div class="card"><h2>🏠 Reino de Amigos</h2><p style="font-size:0.78rem;color:#666;line-height:1.6">Jornada de <strong>14 semanas</strong> em intimidade com Deus, discipulado e missão. Tudo mantido em <strong>sigilo</strong> — ambiente seguro e transformador.</p></div>
+  <div class="card"><h2>🔒 Regras</h2><p style="font-size:0.78rem;color:#666;line-height:1.8">✅ Máximo <strong>4 faltas</strong> (mínimo 10 presenças)<br>✅ Participar das <strong>duplas semanais</strong><br>✅ Ouvir o <strong>Podcast</strong> antes de cada terça<br>✅ Imersão Final só para quem cumprir tudo</p></div>
+  <div class="card"><h2>📍 Local</h2><p style="font-size:0.78rem;color:#666">Casa da <strong>Laís Cardoso</strong> — Todas as terças</p></div>
+</div>
+<div id="panel-lideranca" class="panel">
+  <div class="card"><h2>👥 Líderes & Convidados (1 a 4 cada)</h2><div id="lider-lista"></div><p style="margin-top:10px;font-size:0.78rem;color:#666">Total: <strong id="total-conv">0</strong> convidados</p></div>
+</div>
+<div id="panel-cronograma" class="panel">
+  <div class="card"><h2>📅 14 Terças (04/ago → 10/nov)</h2><p style="font-size:0.72rem;color:#999;margin-bottom:10px">Casa da Laís Cardoso · Feriado 08/set pulado</p><div id="timeline-lista"></div></div>
+</div>
+<div id="panel-tarefas" class="panel">
+  <div class="card"><h2>🎨 Convites</h2><div id="tarefas-convites"></div></div>
+  <div class="card"><h2>🍽️ Jantar Inicial</h2><div id="tarefas-jantar"></div></div>
+  <div class="card"><h2>📅 14 Semanas</h2><div id="tarefas-semanas"></div></div>
+  <div class="card"><h2>🏕️ Imersão Final</h2><div id="tarefas-imersao"></div></div>
+</div>
+<div id="panel-funcoes" class="panel">
+  <div class="card"><h2>⚙️ Distribuição de Funções</h2><p style="font-size:0.72rem;color:#999;margin-bottom:10px">Atribua sem sobrecarregar ninguém</p><div id="funcoes-lista"></div></div>
+</div>
+<div id="panel-semana" class="panel">
+  <div class="card"><h2>🔄 Ciclo Semanal</h2><div class="fluxo"><div class="fluxo-step"><div class="step-num">1</div><h4>🎧 Podcast</h4><p>Ouvir antes da dupla</p></div><div class="fluxo-step"><div class="step-num">2</div><h4>👫 Dupla</h4><p>Encontrar com dupla sorteada</p></div><div class="fluxo-step"><div class="step-num">3</div><h4>🏠 Terça</h4><p>Grupo todo — Casa da Laís</p></div></div></div>
+  <div class="card"><h2>📋 Regras</h2><div class="info-box">✅ 14 encontros · Máx. 4 faltas · Dupla semanal · Podcast · Sigilo 🔒</div></div>
+</div>
+<div class="bottom-bar">
+  <button class="btn btn-reset" onclick="resetAll()">🔄</button>
+  <button class="btn btn-save" onclick="saveData()">💾 Salvar</button>
+  <button class="btn btn-print" onclick="window.print()">🖨️ Imprimir</button>
+</div>
+<script>
+const lideres=["Vinícius Melo","Geise Melo","Heber Almeida","Seila Martins","Aline Vitorino","Igor Vitorino","Laís Cardoso","Mayane Menezes","Roseli Santos"];
+const encontros=[];
+(function(){let c=new Date(2026,7,4),n=0;while(n<14){let d=c.toISOString().split('T')[0];if(d!=='2026-09-08'){n++;encontros.push({num:n,date:new Date(c),dateStr:d})}c.setDate(c.getDate()+7)}})();
+function fmt(d){return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'})}
+const tarefasData={convites:[{id:'c1',titulo:'Arte do convite',desc:'Criar/contratar design',resp:''},{id:'c2',titulo:'Impressão',desc:'Imprimir 1 por convidado',resp:''},{id:'c3',titulo:'Entrega',desc:'Cada líder entrega aos seus',resp:'Todos os líderes'},{id:'c4',titulo:'Confirmar jantar',desc:'Confirmar quantos virão',resp:''},{id:'c5',titulo:'Lista final',desc:'Consolidar nomes confirmados',resp:''}],jantar:[{id:'j1',titulo:'Local',desc:'Mesa, cadeiras, decoração',resp:''},{id:'j2',titulo:'Comida/bebida',desc:'Cardápio, compras, preparo',resp:''},{id:'j3',titulo:'Recepção',desc:'Receber e acolher',resp:''},{id:'j4',titulo:'Roteiro anúncio',desc:'Quem fala, ordem, mistério',resp:''},{id:'j5',titulo:'Kit boas-vindas',desc:'Material inicial',resp:''}],semanas:[{id:'s1',titulo:'Coordenar terças',desc:'Casa pronta, receber, conduzir',resp:''},{id:'s2',titulo:'Sorteio duplas',desc:'Sortear e divulgar semanalmente',resp:''},{id:'s3',titulo:'Presenças',desc:'Registrar faltas, alertar limite',resp:''},{id:'s4',titulo:'Engajamento',desc:'Checar podcast + dupla dos convidados',resp:''},{id:'s5',titulo:'Comunicação',desc:'WhatsApp, lembretes, fotos',resp:''},{id:'s6',titulo:'Backup conteúdo',desc:'Apoio para quem faltar',resp:''}],imersao:[{id:'i1',titulo:'Habilitados',desc:'Listar quem cumpriu (máx 4 faltas)',resp:''},{id:'i2',titulo:'Local imersão',desc:'Pesquisar e reservar',resp:''},{id:'i3',titulo:'Logística',desc:'Transporte, comida, materiais',resp:''},{id:'i4',titulo:'Programação',desc:'Cronograma do fim de semana',resp:''},{id:'i5',titulo:'Comunicar',desc:'Avisar quem participará',resp:''}]};
+const funcoesData=[{id:'f1',nome:'Coordenação Geral',desc:'Visão geral, alinhamento, decisões',sugestao:'Vinícius + Geise'},{id:'f2',nome:'Anfitriã',desc:'Casa pronta, recepção nas terças',sugestao:'Laís Cardoso'},{id:'f3',nome:'Comunicação',desc:'WhatsApp, lembretes, engajamento',sugestao:''},{id:'f4',nome:'Sorteio de Duplas',desc:'Sortear e comunicar toda semana',sugestao:''},{id:'f5',nome:'Controle de Presença',desc:'Registrar faltas, alertar limite',sugestao:''},{id:'f6',nome:'Acomp. Convidados',desc:'Cada líder cuida dos seus',sugestao:'Todos os líderes'},{id:'f7',nome:'Arte & Convites',desc:'Criação, impressão, entrega',sugestao:''},{id:'f8',nome:'Jantar Inicial',desc:'Organização completa',sugestao:''},{id:'f9',nome:'Imersão Final',desc:'Planejamento e execução',sugestao:''},{id:'f10',nome:'Podcast / Conteúdo',desc:'Episódios no ar e divulgados',sugestao:''}];
+let state={convidados:lideres.map(()=>2),nomesConvidados:lideres.map(()=>['','','','']),tarefas:{},checkTarefas:{},funcoes:{}};
+try{let s=localStorage.getItem('reino-de-amigos-state');if(s){let p=JSON.parse(s);state={...state,...p}}}catch(e){}
+function renderLideres(){let e=document.getElementById('lider-lista');e.innerHTML=lideres.map((n,i)=>{let ini=n.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase(),q=state.convidados[i]||1,ins='';for(let j=0;j<q;j++)ins+='<input type="text" placeholder="Convidado '+(j+1)+'" value="'+escapeHtml(state.nomesConvidados[i]?.[j]||'')+'" data-lider="'+i+'" data-idx="'+j+'" oninput="updateNome(this)">';return '<div class="lider-item"><div class="lider-avatar">'+ini+'</div><div class="lider-info"><div class="lider-name">'+n+'</div><div class="lider-convites">Convida <input type="number" min="1" max="4" value="'+q+'" data-lider="'+i+'" onchange="updateQtd(this)" style="width:44px"> pessoas</div><div class="lider-convidados-list">'+ins+'</div></div></div>'}).join('');updateTotal()}
+function updateQtd(e){let i=parseInt(e.dataset.lider),v=parseInt(e.value)||1;if(v<1)v=1;if(v>4)v=4;e.value=v;state.convidados[i]=v;if(!state.nomesConvidados[i])state.nomesConvidados[i]=['','','',''];saveState();renderLideres()}
+function updateNome(e){let i=parseInt(e.dataset.lider),j=parseInt(e.dataset.idx);if(!state.nomesConvidados[i])state.nomesConvidados[i]=['','','',''];state.nomesConvidados[i][j]=e.value;saveState()}
+function updateTotal(){let t=state.convidados.reduce((a,b)=>a+b,0);document.getElementById('total-conv').textContent=t;let g=document.getElementById('total-geral');if(g)g.textContent=t}
+function renderTimeline(){let e=document.getElementById('timeline-lista'),h=encontros.map(en=>'<div class="timeline-item"><div class="timeline-num">'+en.num+'</div><div class="timeline-date">'+fmt(en.date)+'</div><div>Encontro #'+en.num+'</div><div class="timeline-badge">Casa da Laís</div></div>').join(''),fd=new Date(2026,8,8),fh='<div class="timeline-item" style="opacity:0.5"><div class="timeline-num feriado">✕</div><div class="timeline-date">'+fmt(fd)+'</div><div style="text-decoration:line-through">Feriado</div><div class="timeline-badge" style="background:#fdd;color:#c0392b">Pulado</div></div>';let p=h.split('</div>'),r='';for(let s of p){r+=s+'</div>';if(s.includes('Encontro #5'))r+=fh}e.innerHTML=r}
+function renderTarefas(){function b(l,c){let e=document.getElementById(c);e.innerHTML=l.map(t=>{let ch=state.checkTarefas[t.id]?' done':'',r=state.tarefas[t.id]||t.resp||'';return'<div class="tarefa-card"><h4><div class="check-btn'+ch+'" data-tid="'+t.id+'" onclick="toggleTarefa(this)">'+(ch?'✓':'')+'</div>'+t.titulo+'</h4><p>'+t.desc+'</p><input class="resp-input" type="text" placeholder="Responsável" value="'+escapeHtml(r)+'" data-tid="'+t.id+'" oninput="updateTarefaResp(this)"></div>'}).join('')}b(tarefasData.convites,'tarefas-convites');b(tarefasData.jantar,'tarefas-jantar');b(tarefasData.semanas,'tarefas-semanas');b(tarefasData.imersao,'tarefas-imersao')}
+function toggleTarefa(e){let t=e.dataset.tid;state.checkTarefas[t]=!state.checkTarefas[t];saveState();renderTarefas()}
+function updateTarefaResp(e){state.tarefas[e.dataset.tid]=e.value;saveState()}
+function renderFuncoes(){let e=document.getElementById('funcoes-lista');e.innerHTML=funcoesData.map(f=>{let v=state.funcoes[f.id]!==undefined?state.funcoes[f.id]:f.sugestao;return'<div class="funcao-card"><h4>'+f.nome+'</h4><p>'+f.desc+'</p><input class="resp-input" type="text" placeholder="Responsável" value="'+escapeHtml(v)+'" data-fid="'+f.id+'" oninput="updateFuncao(this)"></div>'}).join('')}
+function updateFuncao(e){state.funcoes[e.dataset.fid]=e.value;saveState()}
+function escapeHtml(s){return(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function saveState(){try{localStorage.setItem('reino-de-amigos-state',JSON.stringify(state))}catch(e){}}
+function saveData(){saveState();showToast('✅ Dados salvos! Podem fechar e voltar depois.')}
+function resetAll(){if(confirm('Resetar tudo? Isso limpa nomes, tarefas e funções.')){state={convidados:lideres.map(()=>2),nomesConvidados:lideres.map(()=>['','','','']),tarefas:{},checkTarefas:{},funcoes:{}};saveState();renderAll();showToast('🔄 Tudo resetado!')}}
+function showToast(m){let t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500)}
+document.querySelectorAll('.tab').forEach(t=>{t.addEventListener('click',function(){document.querySelectorAll('.tab').forEach(t2=>t2.classList.remove('active'));document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));this.classList.add('active');document.getElementById('panel-'+this.dataset.panel).classList.add('active')})});
+function renderAll(){renderLideres();renderTimeline();renderTarefas();renderFuncoes()}
+renderAll();
+</script>
+</body>
+</html>
